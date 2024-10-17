@@ -15,7 +15,7 @@ namespace Infrastructure.Extensions
         {
 
 
-            var connectionString = config.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'pizzaDB' not found.");
+            var connectionString = config.GetConnectionString("PizzaDB") ?? throw new InvalidOperationException("Connection string 'pizzaDB' not found.");
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 

@@ -7,6 +7,7 @@ using Infrastructure.Extensions;
 using Architecture.Extensions;
 using Domain.Models;
 using Infrastructure.Data;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +40,9 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddArchitecture(builder.Configuration);
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+//add radzen to proj
+builder.Services.AddRadzenComponents();
 
 var app = builder.Build();
 
