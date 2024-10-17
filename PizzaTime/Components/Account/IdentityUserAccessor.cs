@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
-using PizzaTime.Data;
+using Domain.Models;
+
 
 namespace PizzaTime.Components.Account
 {
