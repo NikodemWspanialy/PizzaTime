@@ -33,7 +33,7 @@ namespace Infrastructure.Repositories
                 }
                 catch
                 {
-                    //log
+                    await transaction.RollbackAsync(); 
                     return null;
                 }
             }
