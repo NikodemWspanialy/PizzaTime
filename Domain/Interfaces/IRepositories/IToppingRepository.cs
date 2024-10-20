@@ -15,5 +15,6 @@ namespace Domain.Interfaces.IRepositories
         Task<Topping?> AddAsync(Topping topping);
         Task<Topping?> GetAsync(string id);
         Task<IEnumerable<Topping>?> GetAllAsync();
+        Task<bool> ExistAsync(Topping topping);
     }
 }
