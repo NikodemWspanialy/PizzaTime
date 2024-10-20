@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Architecture.Toppings.Query.GetAllToppingsQuery
 {
-    public class GetToppingsQuery : Topping, IRequest<IEnumerable<Topping>?>
+    public class GetToppingsQuery : IRequest<IEnumerable<Topping>?>
     {
     }
 }

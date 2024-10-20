@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain.Interfaces.IRepositories;
+using Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace Architecture.Toppings.Query.GetAllToppingsQuery
 {
-    internal class GetToppingsHandler : IRequestHandler<GetToppingsQuery, IEnumerable<Topping>?>
+    internal class GetToppingsHandler(IToppingRepository toppingRepository) : IRequestHandler<GetToppingsQuery, IEnumerable<Topping>?>
     {
-        public Task<IEnumerable<Topping>?> Handle(GetToppingsQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Topping>?> Handle(GetToppingsQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            //TODO przy rozszerzanu aplikacji o DTO dodac mapping 
+            return await toppingRepository.GetAllAsync();
         }
     }
 }
