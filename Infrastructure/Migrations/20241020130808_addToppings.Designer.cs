@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241020130808_addToppings")]
+    partial class addToppings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,14 +95,7 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizeName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -113,42 +109,32 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f4957472-4dec-4bfa-824b-95102ac7f1a1",
-                            IsAvailable = true,
+                            Id = "1150992c-7639-401c-8a4b-c463764e49a0",
                             Name = "Peperoni",
-                            NormalizeName = "PEPERONI",
                             Price = 5.0
                         },
                         new
                         {
-                            Id = "fc15e9b6-b1da-4a0c-84da-f2e0e8376f73",
-                            IsAvailable = true,
+                            Id = "ee2fed01-8e15-4b3c-ae3d-306de8a0fe96",
                             Name = "Cheese",
-                            NormalizeName = "CHEESE",
                             Price = 3.0
                         },
                         new
                         {
-                            Id = "fd46778b-e165-47ff-a8d7-3d11ecf0404c",
-                            IsAvailable = true,
+                            Id = "e954f588-e44d-4d4d-9f15-673d8c78dfe8",
                             Name = "Chicken",
-                            NormalizeName = "CHICKEN",
                             Price = 4.0
                         },
                         new
                         {
-                            Id = "87ae51f3-6822-4a19-9c81-7c3914cb168f",
-                            IsAvailable = true,
+                            Id = "432ee021-ff88-4391-86ad-b119ac68a763",
                             Name = "Mozzarella",
-                            NormalizeName = "MOZZARELLA",
                             Price = 5.0
                         },
                         new
                         {
-                            Id = "dae542a0-431c-49c8-9cb3-f990d8fb7157",
-                            IsAvailable = true,
+                            Id = "c4399f09-95e4-4009-b632-f303200f6f86",
                             Name = "Brocoli",
-                            NormalizeName = "BROCOLI",
                             Price = 6.0
                         });
                 });
