@@ -12,7 +12,7 @@ namespace Domain.Interfaces.IRepositories
     /// </summary>
     public interface IToppingRepository
     {
-        Task<Topping?> AddAsync(Topping topping);
+        Task<bool> AddAsync(Topping topping);
         Task<Topping?> GetAsync(string id);
         Task<IEnumerable<Topping>?> GetAllAsync();
         Task<bool> ExistAsync(Topping topping);

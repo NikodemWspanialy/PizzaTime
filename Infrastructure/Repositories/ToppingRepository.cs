@@ -14,11 +14,11 @@ namespace Infrastructure.Repositories
     internal class ToppingRepository(ApplicationDbContext dbContext) : IToppingRepository
     {
 
-        public async Task<Topping?> AddAsync(Topping topping)
+        public async Task<bool> AddAsync(Topping topping)
         {
             if (topping == null)
             {
-                return null;
+                return false;
             }
             using (var transaction = await dbContext.Database.BeginTransactionAsync())
             {
@@ -29,12 +29,12 @@ namespace Infrastructure.Repositories
 
                     await transaction.CommitAsync();
 
-                    return topping;
+                    return true;
                 }
                 catch
                 {
                     await transaction.RollbackAsync(); 
-                    return null;
+                    return false;
                 }
             }
         }

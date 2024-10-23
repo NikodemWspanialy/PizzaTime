@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 
 namespace Architecture.Toppings.Command.AddToppingCommand
 {
-	internal class AddToppingHandler(IToppingRepository toppingRepo) : IRequestHandler<AddToppingCommand>
+	internal class AddToppingHandler(IToppingRepository toppingRepo) : IRequestHandler<AddToppingCommand, bool>
 	{
-		async Task IRequestHandler<AddToppingCommand>.Handle(AddToppingCommand request, CancellationToken cancellationToken)
+		public async Task<bool> Handle(AddToppingCommand request, CancellationToken cancellationToken)
 		{
 			if (!(await toppingRepo.ExistAsync(request)))
 			{
-				await toppingRepo.AddAsync(request);
+				var result = await toppingRepo.AddAsync(request);
+				return result;
 			}
-			return;
-
+			return false;
 		}
 	}
 }

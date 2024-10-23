@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace Architecture.Toppings.Command.AddToppingCommand
 {
-    public class AddToppingCommand : Topping, IRequest
+    /// <summary>
+    /// Command for creating new topping , returning result 
+    /// </summary>
+    public class AddToppingCommand : Topping, IRequest<bool>
     {
     }
 }
